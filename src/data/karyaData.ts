@@ -45,5 +45,22 @@ export const KARYA_ITEMS: KaryaItem[] = [
       'Integrasi Cepat Chat WhatsApp & Titik Lokasi Google Maps'
     ],
     badge: 'Live Interactive Preview'
+  },
+  {
+    id: 'adhyaksa-laundry',
+    title: 'Adhyaksa Laundry',
+    subtitle: 'Bersih, Wangi, & Rapi Sepenuh Hati',
+    category: 'Jasa & Lifestyle',
+    thumbnailUrl: '/portofolio-karya/thumbnails/Adhyaksa Laundry.JPG',
+    previewUrl: '/portofolio-karya/pages/LP Adyaksa Laundry/adhyaksa_laundry.html',
+    description: 'Landing page modern dan cerah bernuansa oranye segar untuk outlet laundry profesional di Dayeuhkolot, Bandung. Menampilkan paket layanan komplit, cuci kering, setrika, express, keunggulan 1 mesin 1 pelanggan, hingga integrasi pemesanan WhatsApp.',
+    tags: ['Landing Page', 'Jasa Laundry', 'Modern Orange Theme', 'Responsive', 'Live Preview'],
+    features: [
+      'Desain Modern, Ceria & Mobile-First dengan Tema Oranye Segar',
+      'Katalog Paket Layanan (Cuci Komplit, Kering, Setrika, Bed Cover, Sepatu, Express)',
+      'Highlight Keunggulan (Pewangi Tahan Lama, Tepat Waktu, 1 Mesin 1 Pelanggan)',
+      'Integrasi Tombol WhatsApp Melayang & Peta Lokasi Google Maps'
+    ],
+    badge: 'Live Interactive Preview'
   }
 ];

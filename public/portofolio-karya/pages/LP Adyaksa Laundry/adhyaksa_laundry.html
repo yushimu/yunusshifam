@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adhyaksa Laundry - Bersih, Wangi, dan Rapi</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Configuration for Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Poppins', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#fff3e0',
+                            100: '#ffe0b2',
+                            200: '#ffcc80',
+                            300: '#ffb74d',
+                            400: '#ffa726',
+                            500: '#ff9800', // Main Orange
+                            600: '#fb8c00',
+                            700: '#f57c00',
+                            800: '#ef6c00',
+                            900: '#e65100',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom styles for elements that need it beyond Tailwind utilities */
+        .hero-pattern {
+            background-color: #ff9800;
+            background-image: radial-gradient(#ffffff 1px, transparent 1px);
+            background-size: 20px 20px;
+            background-position: 0 0, 10px 10px;
+            background-blend-mode: overlay;
+        }
+        
+        .floating-wa {
+            animation: bounce-soft 2s infinite;
+        }
+
+        @keyframes bounce-soft {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800 bg-gray-50">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-md fixed w-full z-50 top-0 transition-all duration-300">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo & Brand -->
+                <div class="flex items-center gap-3">
+                    <img src="Logo Adhyaksa Laundry.JPG" alt="Adhyaksa Laundry Logo" class="h-12 w-12 object-contain rounded-full shadow-sm border border-brand-100">
+                    <span class="font-bold text-2xl text-brand-600 tracking-tight">Adhyaksa Laundry</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#beranda" class="text-gray-600 hover:text-brand-600 font-medium transition-colors">Beranda</a>
+                    <a href="#layanan" class="text-gray-600 hover:text-brand-600 font-medium transition-colors">Layanan</a>
+                    <a href="#keunggulan" class="text-gray-600 hover:text-brand-600 font-medium transition-colors">Keunggulan</a>
+                    <a href="#lokasi" class="text-gray-600 hover:text-brand-600 font-medium transition-colors">Lokasi</a>
+                    <a href="https://wa.me/6285175141911" target="_blank" class="bg-brand-500 hover:bg-brand-600 text-white px-6 py-2 rounded-full font-medium shadow-lg shadow-brand-500/30 transition-all transform hover:scale-105 flex items-center gap-2">
+                        <i class="fab fa-whatsapp text-lg"></i> Hubungi Kami
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="beranda" class="pt-28 pb-16 md:pt-36 md:pb-24 hero-pattern relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-brand-400/90 to-brand-600/90 z-0"></div>
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-12">
+                <!-- Text Content -->
+                <div class="w-full md:w-1/2 text-center md:text-left text-white">
+                    <span class="inline-block py-1 px-3 rounded-full bg-white/20 backdrop-blur-sm text-sm font-semibold tracking-wider mb-4 border border-white/30 text-white">
+                        #1 LAUNDRY DI DAYEUHKOLOT
+                    </span>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 drop-shadow-md">
+                        Pakaian Bersih, Wangi, & Rapi <br class="hidden lg:block"/> Sepenuh Hati.
+                    </h1>
+                    <p class="text-lg md:text-xl text-brand-50 mb-8 max-w-xl mx-auto md:mx-0 drop-shadow-sm">
+                        Serahkan urusan cucian kotor Anda kepada ahlinya. Kami merawat pakaian Anda dengan deterjen premium dan layanan cepat berkualitas.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                        <a href="https://wa.me/6285175141911" target="_blank" class="bg-white text-brand-600 hover:bg-gray-100 px-8 py-4 rounded-full font-bold text-lg shadow-xl transition-all transform hover:-translate-y-1 flex items-center justify-center gap-2">
+                            <i class="fab fa-whatsapp text-xl text-green-500"></i> Pesan Sekarang
+                        </a>
+                        <a href="#layanan" class="bg-brand-700/50 hover:bg-brand-700/80 backdrop-blur-sm border border-white/50 text-white px-8 py-4 rounded-full font-bold text-lg shadow-xl transition-all flex items-center justify-center">
+                            Lihat Layanan
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Hero Image/Graphic -->
+                <div class="w-full md:w-1/2 flex justify-center mt-10 md:mt-0">
+                    <div class="relative w-72 h-72 md:w-96 md:h-96 bg-white rounded-full p-8 shadow-2xl flex items-center justify-center transform hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 border-4 border-dashed border-brand-300 rounded-full animate-[spin_20s_linear_infinite]"></div>
+                        <img src="Logo Adhyaksa Laundry.JPG" alt="Adhyaksa Laundry" class="w-full h-full object-contain drop-shadow-xl relative z-10 rounded-full">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Wave shape divider -->
+        <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-10">
+            <svg class="relative block w-full h-12 md:h-24" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V120H0V95.8C59.71,118.11,130.83,133.46,190.54,119.51,236.4,109.11,280.9,82.4,321.39,56.44Z" class="fill-gray-50"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="layanan" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Layanan Kami</h2>
+                <div class="w-24 h-1.5 bg-brand-500 mx-auto rounded-full mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">Kami menyediakan berbagai paket layanan laundry yang disesuaikan dengan kebutuhan Anda sehari-hari.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow border border-gray-100 group">
+                    <div class="w-16 h-16 bg-brand-100 text-brand-500 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:bg-brand-500 group-hover:text-white transition-colors">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Cuci Komplit (Cuci + Setrika)</h3>
+                    <p class="text-gray-600 mb-4">Layanan all-in-one. Pakaian Anda dicuci bersih, dikeringkan sempurna, dan disetrika rapi siap pakai.</p>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow border border-gray-100 group">
+                    <div class="w-16 h-16 bg-brand-100 text-brand-500 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:bg-brand-500 group-hover:text-white transition-colors">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Cuci Kering / Cuci Lipat</h3>
+                    <p class="text-gray-600 mb-4">Solusi hemat dan cepat. Pakaian dicuci hingga bersih, dikeringkan, dan dilipat rapi tanpa disetrika.</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow border border-gray-100 group">
+                    <div class="w-16 h-16 bg-brand-100 text-brand-500 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:bg-brand-500 group-hover:text-white transition-colors">
+                        <i class="fas fa-temperature-arrow-up"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Setrika Saja</h3>
+                    <p class="text-gray-600 mb-4">Hanya butuh disetrika? Bawa pakaian bersih Anda, kami akan menyetrikanya hingga rapi dan wangi mempesona.</p>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow border border-gray-100 group">
+                    <div class="w-16 h-16 bg-brand-100 text-brand-500 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:bg-brand-500 group-hover:text-white transition-colors">
+                        <i class="fas fa-bed"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Bed Cover & Selimut</h3>
+                    <p class="text-gray-600 mb-4">Perawatan khusus untuk item besar seperti bed cover, selimut, dan sprei agar bersih maksimal bebas tungau.</p>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow border border-gray-100 group">
+                    <div class="w-16 h-16 bg-brand-100 text-brand-500 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:bg-brand-500 group-hover:text-white transition-colors">
+                        <i class="fas fa-shoe-prints"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Cuci Sepatu & Tas</h3>
+                    <p class="text-gray-600 mb-4">Kembalikan warna dan kebersihan sepatu serta tas kesayangan Anda dengan teknik cuci khusus kami.</p>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-2xl transition-shadow border border-gray-100 group">
+                    <div class="w-16 h-16 bg-brand-100 text-brand-500 rounded-2xl flex items-center justify-center text-3xl mb-6 group-hover:bg-brand-500 group-hover:text-white transition-colors">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Layanan Kilat (Express)</h3>
+                    <p class="text-gray-600 mb-4">Butuh cepat? Gunakan layanan kilat kami yang bisa selesai dalam hitungan jam untuk kebutuhan mendesak Anda.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="keunggulan" class="py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <!-- Image side -->
+                <div class="w-full lg:w-1/2 pr-0 lg:pr-6">
+                    <div class="relative">
+                        <div class="rounded-3xl overflow-hidden shadow-2xl bg-gradient-to-br from-brand-50 to-white border border-brand-100 p-8 h-[400px] flex items-center justify-center">
+                            <img src="Logo Adhyaksa Laundry.JPG" alt="Kualitas Premium Adhyaksa Laundry" class="max-h-[300px] max-w-full object-contain rounded-2xl drop-shadow-lg">
+                        </div>
+                        
+                        <!-- Floating badge -->
+                        <div class="absolute -bottom-6 -right-2 md:-right-6 bg-white p-4 rounded-2xl shadow-xl border border-gray-100 hidden md:block z-20">
+                            <div class="flex items-center gap-4">
+                                <div class="bg-green-100 text-green-500 w-12 h-12 rounded-full flex items-center justify-center text-2xl">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div>
+                                    <p class="font-bold text-gray-800">100%</p>
+                                    <p class="text-sm text-gray-500">Garansi Bersih</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Content side -->
+                <div class="w-full lg:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Kenapa Memilih Adhyaksa Laundry?</h2>
+                    <div class="w-20 h-1.5 bg-brand-500 rounded-full mb-8"></div>
+                    
+                    <div class="space-y-6">
+                        <!-- Feature 1 -->
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-full flex items-center justify-center text-xl">
+                                    <i class="fas fa-spray-can"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-800 mb-2">Pewangi Tahan Lama</h4>
+                                <p class="text-gray-600">Kami menggunakan pewangi pakaian berkualitas premium yang tidak hanya wangi tapi juga aman untuk serat kain dan tahan lama.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Feature 2 -->
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-full flex items-center justify-center text-xl">
+                                    <i class="fas fa-tachometer-alt"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-800 mb-2">Proses Cepat & Tepat Waktu</h4>
+                                <p class="text-gray-600">Sistem manajemen kami memastikan pakaian Anda selesai tepat pada waktu yang dijanjikan, tanpa alasan.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Feature 3 -->
+                        <div class="flex gap-4">
+                            <div class="flex-shrink-0 mt-1">
+                                <div class="w-12 h-12 bg-brand-100 text-brand-600 rounded-full flex items-center justify-center text-xl">
+                                    <i class="fas fa-hands-bubbles"></i>
+                                </div>
+                            </div>
+                            <div>
+                                <h4 class="text-xl font-bold text-gray-800 mb-2">1 Mesin 1 Pelanggan</h4>
+                                <p class="text-gray-600">Demi menjaga kebersihan dan higienitas, kami tidak mencampur pakaian Anda dengan pelanggan lain dalam satu mesin cuci.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location & Contact Section -->
+    <section id="lokasi" class="py-20 bg-gray-50 border-t border-gray-200">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Temukan Kami</h2>
+                <div class="w-24 h-1.5 bg-brand-500 mx-auto rounded-full mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">Kunjungi outlet kami atau hubungi admin untuk layanan antar-jemput cucian Anda.</p>
+            </div>
+
+            <div class="bg-white rounded-3xl shadow-xl overflow-hidden max-w-5xl mx-auto flex flex-col md:flex-row">
+                <!-- Info Panel -->
+                <div class="w-full md:w-2/5 bg-brand-500 text-white p-10 flex flex-col justify-between">
+                    <div>
+                        <h3 class="text-2xl font-bold mb-6 text-white flex items-center gap-3">
+                            <img src="Logo Adhyaksa Laundry.JPG" alt="Logo" class="w-8 h-8 rounded-full bg-white p-1 object-cover">
+                            Info Kontak
+                        </h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start gap-4">
+                                <i class="fas fa-map-marker-alt text-2xl mt-1 text-brand-100"></i>
+                                <div>
+                                    <h4 class="font-semibold text-lg text-brand-50">Alamat</h4>
+                                    <p class="text-brand-100 leading-relaxed mt-1">
+                                        Jl. Adhyaksa Raya No.11,<br>
+                                        Sukapura, Kec. Dayeuhkolot,<br>
+                                        Kota Bandung, Jawa Barat 40267
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-4">
+                                <i class="fab fa-whatsapp text-2xl mt-1 text-brand-100"></i>
+                                <div>
+                                    <h4 class="font-semibold text-lg text-brand-50">Admin WhatsApp</h4>
+                                    <p class="text-xl font-bold mt-1 tracking-wide">
+                                        0851 7514 1911
+                                    </p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start gap-4">
+                                <i class="fas fa-clock text-2xl mt-1 text-brand-100"></i>
+                                <div>
+                                    <h4 class="font-semibold text-lg text-brand-50">Jam Buka</h4>
+                                    <p class="text-brand-100 mt-1">Setiap Hari: 07.00 - 21.00 WIB</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-10">
+                        <a href="https://wa.me/6285175141911" target="_blank" class="block w-full text-center bg-white text-brand-600 font-bold py-3 px-6 rounded-xl hover:bg-gray-100 transition-colors shadow-md">
+                            Chat Admin Sekarang
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Map / Graphic Panel -->
+                <div class="w-full md:w-3/5 min-h-[300px] bg-gray-200 relative">
+                    <!-- Map placeholder linking to maps -->
+                    <div class="absolute inset-0 bg-[url('https://placehold.co/800x600/e2e8f0/94a3b8?text=Peta+Lokasi')] bg-cover bg-center">
+                        <!-- Embedded Google Maps based on provided address -->
+                        <iframe 
+                            src="https://maps.google.com/maps?q=Jl.%20Adhyaksa%20Raya%20No.11,%20Sukapura,%20Kec.%20Dayeuhkolot,%20Kota%20Bandung,%20Jawa%20Barat%2040267&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade"
+                            class="absolute inset-0">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Floating WhatsApp Button (Fixed on bottom right) -->
+    <a href="https://wa.me/6285175141911" target="_blank" class="fixed bottom-6 right-6 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center text-3xl shadow-2xl z-50 hover:bg-green-600 transition-colors floating-wa group">
+        <i class="fab fa-whatsapp"></i>
+        <!-- Tooltip -->
+        <span class="absolute right-16 bg-gray-800 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+            Hubungi Kami!
+        </span>
+    </a>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-10 border-t-4 border-brand-500">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="flex items-center gap-3">
+                    <img src="Logo Adhyaksa Laundry.JPG" alt="Adhyaksa Laundry Logo" class="h-10 w-10 opacity-80 filter grayscale hover:grayscale-0 transition-all rounded-full bg-white/10 p-1 object-cover">
+                    <span class="font-bold text-xl text-white">Adhyaksa Laundry</span>
+                </div>
+                
+                <div class="text-center md:text-right text-sm">
+                    <p>&copy; <span id="year"></span> Adhyaksa Laundry. All rights reserved.</p>
+                    <p class="mt-1">Jl. Adhyaksa Raya No.11, Sukapura, Bandung.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Navbar scroll effect
+        const navbar = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('py-2', 'bg-white/95', 'backdrop-blur-sm');
+                navbar.classList.remove('py-4', 'bg-white');
+            } else {
+                navbar.classList.add('py-4', 'bg-white');
+                navbar.classList.remove('py-2', 'bg-white/95', 'backdrop-blur-sm');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -416,32 +416,30 @@ export const PortfolioPageView: React.FC<PortfolioPageViewProps> = ({
                         {item.title}
                       </h3>
 
-                      <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed">
-                        {item.summary}
-                      </p>
-
-                      {/* Mini Key Metrics Preview */}
-                      <div className="grid grid-cols-2 gap-2 pt-1">
-                        <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
-                          <div className="text-[10px] text-slate-400 font-medium">Eliminasi Duplikat</div>
-                          <div className="text-xs font-extrabold text-emerald-600">3.240 Rekaman</div>
+                      {/* Manfaat Nyata Setelah Selesai (Dibuat Singkat & Padat) */}
+                      <div className="space-y-1.5 pt-0.5">
+                        <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider flex items-center gap-1">
+                          <CheckCircle2 className="w-3 h-3 text-emerald-600" />
+                          <span>Manfaat Nyata Hasil Pembenahan:</span>
                         </div>
-                        <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
-                          <div className="text-[10px] text-slate-400 font-medium">Akurasi Format</div>
-                          <div className="text-xs font-extrabold text-emerald-600">100% Baku E.164</div>
+                        <div className="grid grid-cols-2 gap-1.5 text-[11px]">
+                          <div className="px-2.5 py-1.5 rounded-lg bg-emerald-50 text-emerald-900 border border-emerald-200/60 font-medium flex items-center gap-1.5">
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                            <span className="truncate"><strong>99.4%</strong> WA Blast Sukses</span>
+                          </div>
+                          <div className="px-2.5 py-1.5 rounded-lg bg-emerald-50 text-emerald-900 border border-emerald-200/60 font-medium flex items-center gap-1.5">
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                            <span className="truncate">Hemat <strong>15 Jam</strong>/Mg</span>
+                          </div>
+                          <div className="px-2.5 py-1.5 rounded-lg bg-emerald-50 text-emerald-900 border border-emerald-200/60 font-medium flex items-center gap-1.5">
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                            <span className="truncate"><strong>0</strong> Tagihan Dobel</span>
+                          </div>
+                          <div className="px-2.5 py-1.5 rounded-lg bg-emerald-50 text-emerald-900 border border-emerald-200/60 font-medium flex items-center gap-1.5">
+                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 shrink-0" />
+                            <span className="truncate"><strong>3.240</strong> Duplikat Bersih</span>
+                          </div>
                         </div>
-                      </div>
-
-                      {/* Tags */}
-                      <div className="flex flex-wrap gap-1.5 pt-1">
-                        {item.tags.slice(0, 3).map((tag, idx) => (
-                          <span 
-                            key={idx}
-                            className="text-[10px] px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 font-medium"
-                          >
-                            #{tag}
-                          </span>
-                        ))}
                       </div>
                     </div>
 
