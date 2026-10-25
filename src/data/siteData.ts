@@ -8,7 +8,7 @@ export const COMPANY_INFO = {
   description: 'Portfolio pribadi Yunus Shifa Muntari - Profesional data management dan analitik yang membantu bisnis dan organisasi mentransformasi data menjadi informasi bisnis yang terstruktur, akurat, bernilai, dan siap dieksekusi.',
   mission: 'Membantu bisnis membuka potensi penuh data mereka melalui manajemen data yang akurat, analisis cerdas, otomatisasi alur kerja, dan solusi digital yang inovatif.',
   vision: 'Menjadi mitra utama bagi dunia usaha di Indonesia dalam mewujudkan ekosistem operasional berbasis data yang efisien, transparan, dan berdaya saing tinggi.',
-  email: 'yunus.shifa@example.com',
+  email: 'yunusshifa112@gmail.com',
   phone: '+62 812-XXXX-XXXX',
   whatsappNumber: '6281234567890',
   address: 'Jakarta / Operasional Jarak Jauh Seluruh Indonesia',

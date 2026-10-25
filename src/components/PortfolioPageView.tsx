@@ -14,7 +14,6 @@ import {
   CheckCircle2,
   Monitor,
   Coffee,
-  PlusCircle,
   AlertTriangle,
   Database,
   GitBranch,
@@ -351,24 +350,6 @@ export const PortfolioPageView: React.FC<PortfolioPageViewProps> = ({
 
                   </div>
                 ))}
-
-                {/* Slot Proyek Tambahan (Card Datar) */}
-                <div className="rounded-3xl border-2 border-dashed border-amber-300/80 bg-amber-500/5 p-6 sm:p-8 flex flex-col items-center justify-center text-center space-y-3 min-h-[350px]">
-                  <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-[#C59B27]/30 flex items-center justify-center text-[#C59B27]">
-                    <PlusCircle className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h4 className="text-base font-bold text-[#0F172A]">
-                      Slot Proyek Sistem &amp; Manajemen Data Berikutnya
-                    </h4>
-                    <p className="text-xs text-slate-500 mt-1 max-w-xs mx-auto leading-relaxed">
-                      Upload gambar proyek ke folder <code className="bg-white px-1.5 py-0.5 rounded text-[10px] text-amber-900 border border-amber-200">public/portofolio-project/images/</code> untuk mempublikasikan studi kasus baru.
-                    </p>
-                  </div>
-                  <span className="inline-block px-3 py-1 rounded-full bg-white text-slate-600 text-[11px] font-semibold border border-slate-200 shadow-xs">
-                    Slot Studi Kasus Tersedia
-                  </span>
-                </div>
               </div>
 
             </div>
@@ -515,25 +496,6 @@ export const PortfolioPageView: React.FC<PortfolioPageViewProps> = ({
                     </div>
                   </div>
                 ))}
-
-                {/* Future Showcase Placeholder Card */}
-                <div className="rounded-2xl border-2 border-dashed border-amber-300/80 bg-amber-500/5 p-6 flex flex-col items-center justify-center text-center space-y-3 min-h-[340px]">
-                  <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-[#C59B27]/30 flex items-center justify-center text-[#C59B27]">
-                    <PlusCircle className="w-6 h-6" />
-                  </div>
-                  <div>
-                    <h3 className="text-base font-bold text-[#0F172A]">
-                      Landing Page Berikutnya
-                    </h3>
-                    <p className="text-xs text-slate-500 mt-1 max-w-xs leading-relaxed">
-                      Tambahkan file HTML di folder <code className="bg-white px-1.5 py-0.5 rounded text-[10px] text-amber-900 border border-amber-200">public/portofolio-karya/</code> untuk ditampilkan di sini.
-                    </p>
-                  </div>
-                  <span className="inline-block px-3 py-1 rounded-full bg-white text-slate-600 text-[11px] font-semibold border border-slate-200 shadow-xs">
-                    Slot Karya Tersedia
-                  </span>
-                </div>
-
               </div>
 
             </div>

@@ -17,7 +17,7 @@ import { ContactPageView } from './components/ContactPageView';
 import { PortfolioPageView } from './components/PortfolioPageView';
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useState<PageView>('home');
+  const [currentPage, setCurrentPage] = useState<PageView>('about');
 
   const [consultService, setConsultService] = useState<string | undefined>();
   const [consultContext, setConsultContext] = useState<string | undefined>();
