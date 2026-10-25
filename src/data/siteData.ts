@@ -9,9 +9,9 @@ export const COMPANY_INFO = {
   mission: 'Membantu bisnis membuka potensi penuh data mereka melalui manajemen data yang akurat, analisis cerdas, otomatisasi alur kerja, dan solusi digital yang inovatif.',
   vision: 'Menjadi mitra utama bagi dunia usaha di Indonesia dalam mewujudkan ekosistem operasional berbasis data yang efisien, transparan, dan berdaya saing tinggi.',
   email: 'yunusshifa112@gmail.com',
-  phone: '+62 812-XXXX-XXXX',
-  whatsappNumber: '6281234567890',
-  address: 'Jakarta / Operasional Jarak Jauh Seluruh Indonesia',
+  phone: '+62 857-2264-1239',
+  whatsappNumber: '6285722641239',
+  address: 'Bandung dan Seluruh Dunia',
   workHours: 'Senin - Jumat: 08:30 - 17:30 WIB',
 };
 
@@ -161,7 +161,7 @@ export const BUSINESS_PROBLEMS: ProblemSolutionItem[] = [
     problemDesc: 'File kerja tersimpan di laptop masing-masing karyawan, pesan WhatsApp, dan berbagai folder drive tanpa standarisasi. Sulit mencari data transaksi 6 bulan lalu saat dibutuhkan segera.',
     impact: 'Waktu berharga terbuang hingga 8-12 jam per minggu hanya untuk mencari dan mencocokkan dokumen.',
     solutionTitle: 'Pusat Master Data Terintegrasi (Single Source of Truth)',
-    solutionDesc: 'DATAVORA merancang skema repositori data terpadu dengan hak akses berbasis peran, konvensi penamaan seragam, dan skrip sinkronisasi harian.',
+    solutionDesc: 'Kami merancang skema repositori data terpadu dengan hak akses berbasis peran, konvensi penamaan seragam, dan skrip sinkronisasi harian.',
     keyBenefits: ['Data dapat diakses dalam hitungan detik', 'Mencegah kehilangan file krusial', 'Struktur folder terstandarisasi'],
     industry: 'Semua Industri & Korporasi'
   },
@@ -181,7 +181,7 @@ export const BUSINESS_PROBLEMS: ProblemSolutionItem[] = [
     problemDesc: 'Rumus Excel yang terputus (#REF!, #VALUE!), duplikasi data transaksi, nomor kontak salah digit, dan kesalahan rumus tersembunyi yang mendistorsi angka laba rugi.',
     impact: 'Keputusan strategis didasarkan pada perhitungan yang salah, berisiko menyebabkan kerugian finansial yang signifikan.',
     solutionTitle: 'Audit Rumus & Data Cleansing Terstruktur',
-    solutionDesc: 'DATAVORA melakukan audit menyeluruh terhadap logika kalkulasi, memperkuat validasi input, dan menerapkan formula dinamis modern yang tahan eror.',
+    solutionDesc: 'Melakukan audit menyeluruh terhadap logika kalkulasi, memperkuat validasi input, dan menerapkan formula dinamis modern yang tahan eror.',
     keyBenefits: ['Integritas kalkulasi 100% terjamin', 'Validasi input mencegah kesalahan ketik pengguna', 'Dokumentasi rumus yang mudah dipelihara'],
     industry: 'Retail, Akuntansi, Pendidikan'
   },
@@ -345,7 +345,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Spreadsheet Tips',
     readTime: '4 Menit Baca',
     publishDate: '12 Mei 2026',
-    author: 'Tim Konsultan DATAVORA',
+    author: 'Yunus Shifa Muntari',
     excerpt: 'Apakah tim Anda masih menghabiskan waktu berjam-jam setiap hari hanya untuk copy-paste data manual antar file Excel? Simak tanda-tanda inefisiensi yang sering diabaikan pemilik usaha.',
     content: [
       'Microsoft Excel dan Google Sheets adalah alat yang luar biasa untuk memulai pencatatan bisnis. Namun, seiring dengan pertumbuhan volume transaksi dan kompleksitas operasional, ketergantungan pada proses manual di spreadsheet dapat berubah dari alat bantu menjadi sumber inefisiensi utama.',
@@ -367,7 +367,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Data Management',
     readTime: '5 Menit Baca',
     publishDate: '28 April 2026',
-    author: 'Divisi Analitik DATAVORA',
+    author: 'Yunus Shifa Muntari',
     excerpt: 'Prinsip "Garbage In, Garbage Out" berlaku mutlak dalam dunia data. Secanggih apa pun dashboard yang Anda bangun, semuanya sia-sia jika data sumbernya kotor dan inkonsisten.',
     content: [
       'Banyak eksekutif tergiur melihat demonstrasi dashboard business intelligence (BI) yang memukau dengan visualisasi grafik interaktif 3D dan peta wilayah yang elegan. Namun, seringkali proyek dashboard tersebut gagal digunakan dalam praktik sehari-hari. Mengapa demikian?',
@@ -388,12 +388,12 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Business Problem Solving',
     readTime: '4 Menit Baca',
     publishDate: '15 April 2026',
-    author: 'Tim Penjamin Mutu DATAVORA',
+    author: 'Yunus Shifa Muntari',
     excerpt: 'Satu angka nol yang berlebih pada faktur dapat berakibat fatal bagi likuiditas kas. Pelajari sistem validasi data multi-tier untuk mengamankan operasional Anda.',
     content: [
       'Kesalahan pengetikan (typo) terdengar sepele, namun dalam operasional bisnis berskala jutaan atau miliaran rupiah, salah menaruh titik desimal atau menambahkan satu digit angka nol dapat berdampak pada salah kirim barang, sengketa penagihan dengan klien, hingga kerugian pajak.',
       'Riset di bidang tata kelola administrasi menunjukkan bahwa tingkat kesalahan input manual manusia tanpa sistem validasi berkisar antara 1% hingga 4%. Bayangkan jika tim Anda menginput 10.000 transaksi per bulan: itu berarti ada 100 hingga 400 catatan yang berpotensi cacat setiap bulannya.',
-      'Untuk memitigasi risiko tersebut, DATAVORA INDONESIA selalu menerapkan prinsip 3-Lapis Proteksi (Three-Tier Data Quality Gate):',
+      'Untuk memitigasi risiko tersebut, kami selalu menerapkan prinsip 3-Lapis Proteksi (Three-Tier Data Quality Gate):',
       '1. Input Validation Guard: Pembatasan jenis input pada formulir (misalnya hanya menerima digit angka, rentang nilai yang masuk akal, dan pilihan dropdown terstandarisasi).',
       '2. Double-Key Verification: Untuk transaksi bernilai tinggi, data diverifikasi silang oleh dua petugas independen sebelum masuk ke buku besar.',
       '3. Algorithmic Anomaly Alert: Skrip latar belakang yang otomatis menandai data yang melompat drastis dari rata-rata normal historis untuk segera diinspeksi supervisor.'
@@ -411,7 +411,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Digital Transformation',
     readTime: '6 Menit Baca',
     publishDate: '02 April 2026',
-    author: 'Konsultan Transformasi Digital DATAVORA',
+    author: 'Yunus Shifa Muntari',
     excerpt: 'Transformasi digital tidak harus dimulai dengan membeli sistem ERP berharga ratusan juta. Mulailah dari penataan data operasional harian yang terstruktur.',
     content: [
       'Banyak pemilik usaha kecil dan menengah (UKM) merasa terintimidasi oleh istilah "Transformasi Digital". Dalam benak mereka terbayang biaya instalasi server mahal, konsultan luar negeri berbiaya tinggi, dan kurva pembelajaran sistem baru yang rumit bagi para staf.',
@@ -434,7 +434,7 @@ export const BLOG_POSTS: BlogPost[] = [
     category: 'Data Management',
     readTime: '5 Menit Baca',
     publishDate: '20 Maret 2026',
-    author: 'Tim Arsitek Data DATAVORA',
+    author: 'Yunus Shifa Muntari',
     excerpt: 'Pahami batas kemampuan teknis spreadsheet dan kenali momen tepat saat perusahaan Anda harus beralih ke aplikasi database relasional.',
     content: [
       'Spreadsheet adalah alat terbaik untuk eksplorasi data cepat dan pembuatan kalkulasi fleksibel. Namun, spreadsheet tidak pernah dirancang untuk menjadi basis data operasional multi-pengguna jangka panjang.',

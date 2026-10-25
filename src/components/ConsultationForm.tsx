@@ -85,7 +85,7 @@ export const ConsultationForm: React.FC<ConsultationFormProps> = ({
                   <Clock className="w-4 h-4 text-[#E6C564] flex-shrink-0 mt-0.5" />
                   <div>
                     <strong className="block text-white">Respon Cepat 24 Jam Kerja</strong>
-                    <span className="text-[11px] text-slate-400">Tim konsultan kami akan meninjau dan merespon dalam 1 hari kerja.</span>
+                    <span className="text-[11px] text-slate-400">Yunus Shifa Muntari akan meninjau dan merespon dalam 1 hari kerja.</span>
                   </div>
                 </div>
               </div>
@@ -248,7 +248,7 @@ export const ConsultationForm: React.FC<ConsultationFormProps> = ({
                   Permintaan Konsultasi Diterima!
                 </h4>
                 <p className="text-xs sm:text-sm text-slate-600 max-w-sm mx-auto">
-                  Terima kasih, <strong>{fullName}</strong> dari <strong>{companyName}</strong>. Tim konsultan DATAVORA INDONESIA akan segera menghubungi Anda dalam 24 jam kerja.
+                  Terima kasih, <strong>{fullName}</strong> dari <strong>{companyName}</strong>. Yunus Shifa Muntari akan segera menghubungi Anda dalam 24 jam kerja.
                 </p>
                 <div className="pt-3 flex flex-col sm:flex-row justify-center gap-2">
                   <button

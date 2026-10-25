@@ -104,7 +104,7 @@ export const DataCleaningDemo: React.FC = () => {
                 : 'text-slate-400 hover:text-white'
             }`}
           >
-            Hasil Bersih DATAVORA
+            Hasil Bersih Terstandardisasi
           </button>
         </div>
       </div>

@@ -61,7 +61,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
               Kanal Pengetahuan &amp; Solusi Data Bisnis
             </h2>
             <p className="text-slate-600 text-xs sm:text-sm md:text-base mt-2 max-w-2xl leading-relaxed">
-              Kumpulan artikel edukatif, panduan optimasi spreadsheet, serta catatan teknis dari praktisi dan kontributor DATAVORA INDONESIA.
+              Kumpulan artikel edukatif, panduan optimasi spreadsheet, serta catatan teknis dari Yunus Shifa Muntari.
             </p>
           </div>
 
@@ -264,7 +264,7 @@ export const BlogSection: React.FC<BlogSectionProps> = ({
                 }}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-slate-950 bg-gradient-to-r from-[#E6C564] via-[#D4AF37] to-[#B8860B] shadow-sm hover:brightness-105"
               >
-                <span>Konsultasikan Topik Ini Bersama DATAVORA</span>
+                <span>Konsultasikan Topik Ini Bersama Yunus Shifa Muntari</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
             </div>

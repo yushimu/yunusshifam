@@ -74,7 +74,7 @@ export const DataHealthAudit: React.FC = () => {
   };
 
   const waMessage = encodeURIComponent(
-    `Halo DATAVORA INDONESIA, saya telah menyelesaikan Audit Kesiapan Data di website dengan skor ${percentage}% (${status.label}). Estimasi inefisiensi kami sekitar ${status.timeLoss}. Rekomendasi layanan: ${recommendedServices.join(', ')}. Saya ingin berkonsultasi lebih lanjut.`
+    `Halo Yunus Shifa Muntari, saya telah menyelesaikan Audit Kesiapan Data di website dengan skor ${percentage}% (${status.label}). Estimasi inefisiensi kami sekitar ${status.timeLoss}. Rekomendasi layanan: ${recommendedServices.join(', ')}. Saya ingin berkonsultasi lebih lanjut.`
   );
 
   return (
@@ -202,7 +202,7 @@ export const DataHealthAudit: React.FC = () => {
                   <Sparkles className="w-4 h-4 text-[#C59B27]" />
                 </div>
                 <div>
-                  <h4 className="text-[10px] font-bold text-slate-500 uppercase">Rekomendasi Modul DATAVORA:</h4>
+                  <h4 className="text-[10px] font-bold text-slate-500 uppercase">Rekomendasi Modul Solusi:</h4>
                   <div className="text-xs font-bold text-[#0F172A] mt-1 space-y-1">
                     {recommendedServices.map((srv, idx) => (
                       <div key={idx} className="flex items-center gap-1.5 text-xs text-[#94721C]">

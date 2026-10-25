@@ -26,7 +26,7 @@ export const SolutionsSection: React.FC<SolutionsSectionProps> = ({ onConsult })
             <span>Problem-Solving Mindset</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-extrabold text-[#102A43] tracking-tight">
-            Bagaimana DATAVORA Menyelesaikan Masalah Bisnis Anda
+            Bagaimana Yunus Shifa Muntari Menyelesaikan Masalah Bisnis Anda
           </h2>
           <p className="text-slate-600 text-base sm:text-lg mt-3 leading-relaxed">
             Kami bukan sekadar agensi teknologi; kami adalah mitra strategis yang membedah akar inefisiensi operasional dan merancang solusi data yang praktis serta berdampak langsung.
@@ -89,7 +89,7 @@ export const SolutionsSection: React.FC<SolutionsSectionProps> = ({ onConsult })
                   <div>
                     <div className="flex items-center gap-2 text-blue-600 font-bold text-xs uppercase tracking-wider mb-2">
                       <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                      <span>Solusi Konkrit DATAVORA:</span>
+                      <span>Solusi Konkrit:</span>
                     </div>
                     <h4 className="text-sm font-bold text-[#102A43] mb-2">
                       {prob.solutionTitle}

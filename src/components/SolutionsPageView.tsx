@@ -29,7 +29,7 @@ export const SolutionsPageView: React.FC<SolutionsPageViewProps> = ({ onConsultP
             Menyelesaikan Inefisiensi Operasional Berbasis Data
           </h1>
           <p className="text-slate-600 text-base sm:text-lg mt-4 leading-relaxed">
-            Temukan bagaimana pendekatan terstruktur DATAVORA membantu organisasi mengatasi 6 kendala operasional utama yang sering menghambat produktivitas.
+            Temukan bagaimana pendekatan sistematis Yunus Shifa Muntari membantu organisasi mengatasi 6 kendala operasional utama yang sering menghambat produktivitas.
           </p>
         </div>
 
@@ -69,7 +69,7 @@ export const SolutionsPageView: React.FC<SolutionsPageViewProps> = ({ onConsultP
                 <div className="lg:col-span-7 space-y-4">
                   <div className="flex items-center gap-2 text-emerald-600 font-bold text-xs uppercase tracking-wider">
                     <CheckCircle2 className="w-4 h-4" />
-                    <span>Solusi Sistematis DATAVORA</span>
+                    <span>Solusi Sistematis:</span>
                   </div>
 
                   <h4 className="text-xl font-bold text-[#102A43]">
