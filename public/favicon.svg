@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5DF88"/>
+      <stop offset="50%" stop-color="#D4AF37"/>
+      <stop offset="100%" stop-color="#997316"/>
+    </linearGradient>
+    <linearGradient id="glowGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#000000" stop-opacity="0.15"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background Squircle -->
+  <rect x="2" y="2" width="60" height="60" rx="15" fill="url(#goldGrad)" stroke="#FFE899" stroke-width="1.5"/>
+  <rect x="2" y="2" width="60" height="60" rx="15" fill="url(#glowGrad)"/>
+
+  <!-- Database Cylinders Emblem in Deep Dark Slate (#0F172A) -->
+  <g fill="none" stroke="#0F172A" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Top Cylinder Cap -->
+    <ellipse cx="32" cy="18" rx="15" ry="5.5" fill="#0F172A" stroke="#0F172A" stroke-width="2"/>
+    <ellipse cx="32" cy="18" rx="11" ry="3.5" fill="none" stroke="#E6C564" stroke-width="1.8" opacity="0.9"/>
+
+    <!-- Middle Cylinder Ring -->
+    <path d="M17 18 v11 c0 3.2 6.7 5.8 15 5.8 s15 -2.6 15 -5.8 v-11"/>
+
+    <!-- Bottom Cylinder Ring -->
+    <path d="M17 30 v11 c0 3.2 6.7 5.8 15 5.8 s15 -2.6 15 -5.8 v-11"/>
+  </g>
+
+  <!-- Sparkle Accent in Top-Right -->
+  <path d="M50 10 L51.2 13.8 L55 15 L51.2 16.2 L50 20 L48.8 16.2 L45 15 L48.8 13.8 Z" fill="#0F172A"/>
+</svg>

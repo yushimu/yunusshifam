@@ -32,8 +32,10 @@ import {
 import { PortfolioTabId } from '../types';
 import { KARYA_ITEMS, KaryaItem } from '../data/karyaData';
 import { PROJECT_ITEMS, ProjectItem } from '../data/projectData';
+import { PROBLEM_SOLVING_ITEMS, ProblemSolvingItem } from '../data/problemSolvingData';
 import { LandingPageModal } from './LandingPageModal';
 import { ProjectDetailModal } from './ProjectDetailModal';
+import { ProblemSolvingModal } from './ProblemSolvingModal';
 
 interface PortfolioPageViewProps {
   onBackToHome?: () => void;
@@ -99,6 +101,9 @@ export const PortfolioPageView: React.FC<PortfolioPageViewProps> = ({
   const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
   const [isProjectModalOpen, setIsProjectModalOpen] = useState(false);
 
+  const [selectedProblemSolving, setSelectedProblemSolving] = useState<ProblemSolvingItem | null>(null);
+  const [isProblemSolvingModalOpen, setIsProblemSolvingModalOpen] = useState(false);
+
   const currentTabInfo = TABS.find((t) => t.id === activeTab) || TABS[0];
   const ActiveTabIcon = currentTabInfo.icon;
 
@@ -118,6 +123,16 @@ export const PortfolioPageView: React.FC<PortfolioPageViewProps> = ({
 
   const handleCloseProjectDetail = () => {
     setIsProjectModalOpen(false);
+  };
+
+  const handleOpenProblemSolving = (item: ProblemSolvingItem) => {
+    setSelectedProblemSolving(item);
+    setIsProblemSolvingModalOpen(true);
+  };
+
+  const handleCloseProblemSolving = () => {
+    setIsProblemSolvingModalOpen(false);
+    setSelectedProblemSolving(null);
   };
 
   const renderMetricIcon = (iconType?: string) => {
@@ -348,6 +363,98 @@ export const PortfolioPageView: React.FC<PortfolioPageViewProps> = ({
                       </button>
                     </div>
 
+                  </div>
+                ))}
+              </div>
+
+            </div>
+          ) : activeTab === 'problem-solving' ? (
+            /* TAB: PROBLEM SOLVING & STUDI KASUS RIIL */
+            <div className="space-y-6 animate-fadeIn">
+              
+              {/* Section Subhead */}
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-4 border-b border-slate-200">
+                <div>
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="px-2.5 py-0.5 rounded-full bg-amber-500/10 border border-[#C59B27]/30 text-[#B8860B] text-[11px] font-bold uppercase tracking-wider">
+                      Studi Kasus &amp; Pemecahan Masalah
+                    </span>
+                    <span className="text-xs text-slate-500">
+                      • {PROBLEM_SOLVING_ITEMS.length} Kasus Nyata
+                    </span>
+                  </div>
+                  <h2 className="text-xl sm:text-2xl font-extrabold text-[#0F172A] tracking-tight">
+                    Problem Solving &amp; Optimasi Data Bisnis
+                  </h2>
+                </div>
+
+                <div className="flex items-center gap-2 text-xs font-semibold text-slate-600 bg-white px-3 py-1.5 rounded-xl border border-slate-200 shadow-xs self-start sm:self-auto">
+                  <BrainCircuit className="w-3.5 h-3.5 text-[#C59B27]" />
+                  <span>Metodologi Sistematis 5 Langkah</span>
+                </div>
+              </div>
+
+              {/* Problem Solving Small Cards Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                {PROBLEM_SOLVING_ITEMS.map((item) => (
+                  <div
+                    key={item.id}
+                    onClick={() => handleOpenProblemSolving(item)}
+                    className="group relative bg-white rounded-2xl border border-slate-200/90 hover:border-[#C59B27] p-5 sm:p-6 shadow-xs hover:shadow-xl transition-all duration-300 flex flex-col justify-between cursor-pointer space-y-4"
+                  >
+                    <div className="space-y-3">
+                      <div className="flex items-center justify-between gap-2">
+                        <span className="px-2.5 py-1 rounded-full bg-slate-900 text-[#E6C564] text-[10px] font-bold tracking-wide">
+                          {item.client}
+                        </span>
+                        <span className="px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-900 border border-amber-300/60 text-[10px] font-bold">
+                          {item.datasetSize}
+                        </span>
+                      </div>
+
+                      <h3 className="text-base font-extrabold text-[#0F172A] group-hover:text-[#B8860B] transition-colors line-clamp-2 leading-snug">
+                        {item.title}
+                      </h3>
+
+                      <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed">
+                        {item.summary}
+                      </p>
+
+                      {/* Mini Key Metrics Preview */}
+                      <div className="grid grid-cols-2 gap-2 pt-1">
+                        <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
+                          <div className="text-[10px] text-slate-400 font-medium">Eliminasi Duplikat</div>
+                          <div className="text-xs font-extrabold text-emerald-600">3.240 Rekaman</div>
+                        </div>
+                        <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100">
+                          <div className="text-[10px] text-slate-400 font-medium">Akurasi Format</div>
+                          <div className="text-xs font-extrabold text-emerald-600">100% Baku E.164</div>
+                        </div>
+                      </div>
+
+                      {/* Tags */}
+                      <div className="flex flex-wrap gap-1.5 pt-1">
+                        {item.tags.slice(0, 3).map((tag, idx) => (
+                          <span 
+                            key={idx}
+                            className="text-[10px] px-2 py-0.5 rounded-md bg-slate-100 text-slate-600 font-medium"
+                          >
+                            #{tag}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Bottom Action Button */}
+                    <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+                      <span className="text-[11px] font-bold text-[#C59B27] group-hover:text-[#9A7B1C] flex items-center gap-1">
+                        <span>Lihat Masalah &amp; Solusi</span>
+                        <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
+                      </span>
+                      <span className="px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 text-[10px] font-bold">
+                        Terselesaikan
+                      </span>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -589,6 +696,14 @@ export const PortfolioPageView: React.FC<PortfolioPageViewProps> = ({
         isOpen={isProjectModalOpen}
         onClose={handleCloseProjectDetail}
         project={selectedProject}
+        onConsult={onConsult}
+      />
+
+      {/* Problem Solving Detail Modal Popup */}
+      <ProblemSolvingModal
+        isOpen={isProblemSolvingModalOpen}
+        onClose={handleCloseProblemSolving}
+        item={selectedProblemSolving}
         onConsult={onConsult}
       />
 
