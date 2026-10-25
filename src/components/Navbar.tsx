@@ -31,18 +31,29 @@ export const Navbar: React.FC<NavbarProps> = ({
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navItems: { label: string; page: PageView }[] = [
-    { label: 'Beranda', page: 'home' },
+  const navItems: { label: string; page: PageView; targetId?: string }[] = [
     { label: 'Tentang Saya', page: 'about' },
     { label: 'Produk', page: 'products' },
     { label: 'Portofolio', page: 'portfolio' },
     { label: 'Kontak', page: 'contact' },
+    { label: 'Layanan', page: 'home', targetId: 'layanan' },
   ];
 
-  const handleNavClick = (page: PageView) => {
+  const handleNavClick = (page: PageView, targetId?: string) => {
     setCurrentPage(page);
     setIsMobileMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    if (targetId) {
+      setTimeout(() => {
+        const el = document.getElementById(targetId);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
   };
 
   return (
@@ -83,8 +94,8 @@ export const Navbar: React.FC<NavbarProps> = ({
               const isActive = currentPage === item.page;
               return (
                 <button
-                  key={item.page}
-                  onClick={() => handleNavClick(item.page)}
+                  key={item.label}
+                  onClick={() => handleNavClick(item.page, item.targetId)}
                   className={`px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition-all duration-150 ${
                     isActive
                       ? 'text-[#E6C564] bg-white/5 font-bold shadow-inner'
@@ -136,8 +147,8 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div className="flex flex-col gap-0.5 mb-3">
             {navItems.map((item) => (
               <button
-                key={item.page}
-                onClick={() => handleNavClick(item.page)}
+                key={item.label}
+                onClick={() => handleNavClick(item.page, item.targetId)}
                 className={`flex items-center justify-between px-3 py-2 rounded-lg text-sm font-semibold text-left transition-colors ${
                   currentPage === item.page
                     ? 'text-[#E6C564] bg-white/10'

@@ -34,6 +34,7 @@ import { PortfolioTabId } from '../types';
 import { KARYA_ITEMS, KaryaItem } from '../data/karyaData';
 import { PROJECT_ITEMS, ProjectItem } from '../data/projectData';
 import { LandingPageModal } from './LandingPageModal';
+import { ProjectDetailModal } from './ProjectDetailModal';
 
 interface PortfolioPageViewProps {
   onBackToHome?: () => void;
@@ -96,6 +97,9 @@ export const PortfolioPageView: React.FC<PortfolioPageViewProps> = ({
   const [selectedKarya, setSelectedKarya] = useState<KaryaItem | null>(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
+  const [isProjectModalOpen, setIsProjectModalOpen] = useState(false);
+
   const currentTabInfo = TABS.find((t) => t.id === activeTab) || TABS[0];
   const ActiveTabIcon = currentTabInfo.icon;
 
@@ -106,6 +110,15 @@ export const PortfolioPageView: React.FC<PortfolioPageViewProps> = ({
 
   const handleClosePreview = () => {
     setIsModalOpen(false);
+  };
+
+  const handleOpenProjectDetail = (project: ProjectItem) => {
+    setSelectedProject(project);
+    setIsProjectModalOpen(true);
+  };
+
+  const handleCloseProjectDetail = () => {
+    setIsProjectModalOpen(false);
   };
 
   const renderMetricIcon = (iconType?: string) => {
@@ -215,231 +228,147 @@ export const PortfolioPageView: React.FC<PortfolioPageViewProps> = ({
                 </div>
               </div>
 
-              {/* Projects List */}
-              <div className="space-y-12">
+              {/* Projects Grid (Card Kecil) */}
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
                 {PROJECT_ITEMS.map((project) => (
                   <div 
                     key={project.id}
-                    className="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden"
+                    onClick={() => handleOpenProjectDetail(project)}
+                    className="bg-white rounded-3xl border border-slate-200 hover:border-[#C59B27] shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden flex flex-col justify-between group cursor-pointer hover:-translate-y-1"
                   >
-                    {/* Project Header Info */}
-                    <div className="p-6 sm:p-8 lg:p-10 border-b border-slate-100 bg-gradient-to-br from-slate-50/70 via-white to-amber-50/30">
-                      <div className="flex flex-wrap items-center justify-between gap-3 mb-4">
-                        <div className="flex items-center gap-2.5">
-                          <span className="px-3 py-1 rounded-full bg-slate-900 text-[#E6C564] border border-[#C59B27]/40 text-xs font-bold uppercase tracking-wider">
-                            {project.category}
-                          </span>
-                          <span className="px-2.5 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-800 text-xs font-bold">
-                            {project.badge}
+                    {/* Top Image Preview with Browser Mockup Header */}
+                    <div className="relative h-52 sm:h-60 overflow-hidden bg-slate-950 flex flex-col justify-between">
+                      {/* Mockup Header Bar */}
+                      <div className="px-3.5 py-2 bg-slate-900 border-b border-slate-800 flex items-center justify-between text-xs text-slate-400 select-none z-10">
+                        <div className="flex items-center gap-1.5">
+                          <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block" />
+                          <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block" />
+                          <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block" />
+                          <span className="text-[11px] text-slate-400 font-mono ml-2 truncate max-w-[170px] sm:max-w-none">
+                            {project.mockupUrl || `${project.id}.workspace`}
                           </span>
                         </div>
-                        <span className="text-xs font-medium text-slate-500">
-                          {project.systemTag || 'Data & Management System'}
+                        <span className="px-2 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-[10px] font-bold flex items-center gap-1">
+                          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                          {project.badge}
                         </span>
                       </div>
 
-                      <h3 className="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-[#0F172A] tracking-tight mb-2">
-                        {project.title}
-                      </h3>
-                      <p className="text-sm sm:text-base font-semibold text-[#B8860B] mb-4">
-                        {project.subtitle}
-                      </p>
-                      <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-4xl">
-                        {project.summary}
-                      </p>
+                      {/* Image Thumbnail with zoom effect */}
+                      <div className="relative flex-1 overflow-hidden bg-slate-950 flex items-center justify-center">
+                        <img
+                          src={project.imageUrl}
+                          alt={project.title}
+                          className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500 select-none"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
+                      </div>
 
-                      {/* Pilar Metrik Utama Proyek */}
+                      {/* Hover Overlay Button */}
+                      <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-slate-950/40 backdrop-blur-[1px] z-20">
+                        <div className="px-4 py-2 rounded-xl bg-gradient-to-r from-[#E6C564] via-[#D4AF37] to-[#B8860B] text-slate-950 font-bold text-xs flex items-center gap-1.5 shadow-lg scale-95 group-hover:scale-100 transition-transform">
+                          <Eye className="w-4 h-4 text-slate-950" />
+                          <span>Klik untuk Detail Proyek</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Card Content Details */}
+                    <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between space-y-4">
+                      <div>
+                        {/* Category & System Tag */}
+                        <div className="flex flex-wrap items-center justify-between gap-2 mb-2.5">
+                          <span className="px-2.5 py-0.5 rounded-full bg-slate-900 text-[#E6C564] border border-[#C59B27]/40 text-[10px] font-bold uppercase tracking-wider">
+                            {project.category}
+                          </span>
+                          <span className="text-[11px] font-medium text-slate-500">
+                            {project.systemTag || 'Data & Management'}
+                          </span>
+                        </div>
+
+                        {/* Title & Subtitle */}
+                        <h3 className="text-xl sm:text-2xl font-extrabold text-[#0F172A] tracking-tight group-hover:text-[#94721C] transition-colors leading-snug">
+                          {project.title}
+                        </h3>
+                        <p className="text-xs font-semibold text-[#B8860B] mt-0.5 mb-2.5 line-clamp-1">
+                          {project.subtitle}
+                        </p>
+
+                        {/* Summary description */}
+                        <p className="text-slate-600 text-xs sm:text-sm leading-relaxed line-clamp-2">
+                          {project.summary}
+                        </p>
+                      </div>
+
+                      {/* Key Metrics Quick Preview (Pills) */}
                       {project.keyMetrics && project.keyMetrics.length > 0 && (
-                        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 mt-6 pt-6 border-t border-slate-200/80">
-                          {project.keyMetrics.map((metric, mIdx) => (
-                            <div key={mIdx} className="p-3.5 rounded-2xl bg-white border border-slate-200/90 shadow-2xs">
-                              <div className="flex items-center gap-2 text-slate-900 font-bold text-xs mb-1">
-                                {renderMetricIcon(metric.iconType)}
-                                <span>{mIdx + 1}. {metric.label}</span>
+                        <div className="pt-3 border-t border-slate-100">
+                          <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400 mb-2">
+                            Pilar Utama Sistem ({project.keyMetrics.length}):
+                          </div>
+                          <div className="grid grid-cols-2 gap-2">
+                            {project.keyMetrics.slice(0, 4).map((metric, mIdx) => (
+                              <div key={mIdx} className="p-2 rounded-xl bg-slate-50 border border-slate-100 flex items-center gap-2">
+                                <div className="shrink-0">{renderMetricIcon(metric.iconType)}</div>
+                                <span className="text-[11px] font-bold text-slate-800 truncate">{metric.label}</span>
                               </div>
-                              <p className="text-[11px] text-slate-500 leading-snug">
-                                {metric.sublabel}
-                              </p>
-                            </div>
-                          ))}
+                            ))}
+                          </div>
                         </div>
                       )}
-                    </div>
 
-                    {/* Visual Showcase (Gambar Dashboard Proyek) */}
-                    <div className="p-6 sm:p-8 lg:p-10 bg-slate-900/95 border-b border-slate-800">
-                      <div className="max-w-5xl mx-auto">
-                        
-                        {/* Browser-like Mockup Container */}
-                        <div className="rounded-2xl overflow-hidden border border-slate-700/80 shadow-2xl bg-slate-950">
-                          
-                          {/* Mockup Header Bar */}
-                          <div className="px-4 py-2.5 bg-slate-900 border-b border-slate-800 flex items-center justify-between text-xs text-slate-400 select-none">
-                            <div className="flex items-center gap-2">
-                              <span className="w-3 h-3 rounded-full bg-rose-500/80 inline-block" />
-                              <span className="w-3 h-3 rounded-full bg-amber-500/80 inline-block" />
-                              <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block" />
-                              <span className="text-[11px] text-slate-400 font-mono ml-2 hidden sm:inline">
-                                {project.mockupUrl || `${project.id}.workspace/dashboard`}
-                              </span>
-                            </div>
-                            <div className="flex items-center gap-2 text-[11px] font-semibold text-slate-400">
-                              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                              <span>{project.mockupBadge || 'Live System Snapshot'}</span>
-                            </div>
-                          </div>
-
-                          {/* Image Display */}
-                          <div className="relative overflow-hidden bg-slate-950 flex items-center justify-center">
-                            <img
-                              src={project.imageUrl}
-                              alt={project.title}
-                              className="w-full h-auto object-contain max-h-[580px] select-none"
-                            />
-                          </div>
-
-                          {/* Mockup Caption Footer */}
-                          <div className="px-4 py-2.5 bg-slate-900/90 border-t border-slate-800/80 text-center text-xs text-slate-400">
-                            {project.imageCaption || `Antarmuka Dasbor ${project.title}`}
-                          </div>
-                        </div>
-
-                      </div>
-                    </div>
-
-                    {/* Problem vs Solution Deep-Dive */}
-                    <div className="p-6 sm:p-8 lg:p-10 space-y-8 bg-white">
-                      
-                      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        
-                        {/* Kolom 1: Kendala */}
-                        <div className="rounded-2xl p-6 sm:p-7 bg-rose-50/50 border border-rose-100 flex flex-col justify-between">
-                          <div>
-                            <div className="flex items-center gap-2.5 text-rose-700 font-extrabold text-sm uppercase tracking-wider mb-4 pb-2 border-b border-rose-200">
-                              <AlertTriangle className="w-4 h-4 text-rose-600" />
-                              <span>{project.problemsHeading || 'Kendala yang Dihadapi:'}</span>
-                            </div>
-                            <div className="space-y-4">
-                              {project.problems.map((prob, idx) => (
-                                <div key={idx} className="flex items-start gap-3">
-                                  <span className="w-5 h-5 rounded-full bg-rose-200/80 text-rose-800 text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">
-                                    {idx + 1}
-                                  </span>
-                                  <div>
-                                    <h4 className="text-xs sm:text-sm font-bold text-slate-900 leading-snug">
-                                      {prob.title}
-                                    </h4>
-                                    <p className="text-xs text-slate-600 mt-1 leading-relaxed">
-                                      {prob.desc}
-                                    </p>
-                                  </div>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        </div>
-
-                        {/* Kolom 2: Solusi */}
-                        <div className="rounded-2xl p-6 sm:p-7 bg-emerald-50/50 border border-emerald-100 flex flex-col justify-between">
-                          <div>
-                            <div className="flex items-center gap-2.5 text-emerald-800 font-extrabold text-sm uppercase tracking-wider mb-4 pb-2 border-b border-emerald-200">
-                              <CheckCircle2 className="w-4 h-4 text-emerald-600" />
-                              <span>{project.solutionsHeading || `Solusi yang Diberikan Melalui ${project.title}:`}</span>
-                            </div>
-                            <div className="space-y-4">
-                              {project.solutions.map((sol, idx) => (
-                                <div key={idx} className="flex items-start gap-3">
-                                  <span className="w-5 h-5 rounded-full bg-emerald-200/80 text-emerald-900 text-[11px] font-bold flex items-center justify-center shrink-0 mt-0.5">
-                                    {idx + 1}
-                                  </span>
-                                  <div>
-                                    <h4 className="text-xs sm:text-sm font-bold text-slate-900 leading-snug">
-                                      {sol.title}
-                                    </h4>
-                                    <p className="text-xs text-slate-600 mt-1 leading-relaxed">
-                                      {sol.desc}
-                                    </p>
-                                  </div>
-                                </div>
-                              ))}
-                            </div>
-                          </div>
-                        </div>
-
-                      </div>
-
-                      {/* Tools & Tech Stack Used */}
-                      <div className="pt-6 border-t border-slate-100">
-                        <h4 className="text-xs font-bold text-slate-900 uppercase tracking-wider mb-4 flex items-center gap-2">
-                          <Layers className="w-4 h-4 text-[#C59B27]" />
-                          <span>Teknologi &amp; Alat yang Digunakan (Tech Stack):</span>
-                        </h4>
-
-                        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                          {project.tools.map((tool, tIdx) => (
-                            <div key={tIdx} className="p-4 rounded-2xl bg-slate-50 border border-slate-200/80 flex items-start gap-3.5">
-                              <div className="p-2.5 rounded-xl bg-white border border-slate-200/80 shadow-2xs shrink-0">
-                                {renderToolIcon(tool.iconType)}
-                              </div>
-                              <div>
-                                <div className="flex items-center gap-2 flex-wrap">
-                                  <h5 className="font-extrabold text-sm text-[#0F172A]">{tool.name}</h5>
-                                  {tool.tagBadge && (
-                                    <span className={`text-[10px] font-bold px-2 py-0.5 rounded ${tool.badgeColor || 'bg-slate-200 text-slate-800'}`}>
-                                      {tool.tagBadge}
-                                    </span>
-                                  )}
-                                </div>
-                                <p className="text-xs text-slate-600 mt-1 leading-relaxed">
-                                  {tool.desc || tool.role}
-                                </p>
-                              </div>
-                            </div>
-                          ))}
-                        </div>
-                      </div>
-
-                      {/* Features & Tags Footer */}
-                      <div className="pt-4 border-t border-slate-100 flex flex-wrap items-center justify-between gap-4">
-                        <div className="flex flex-wrap items-center gap-1.5">
-                          {project.tags.map((tag) => (
-                            <span 
-                              key={tag}
-                              className="px-2.5 py-1 rounded-md bg-slate-100 text-slate-600 text-[11px] font-semibold"
-                            >
-                              #{tag}
-                            </span>
-                          ))}
-                        </div>
-
-                        {onConsult && (
-                          <button
-                            onClick={onConsult}
-                            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold text-slate-950 bg-gradient-to-r from-[#E6C564] via-[#D4AF37] to-[#B8860B] hover:brightness-105 shadow-md shadow-amber-900/15 transition-all duration-150 cursor-pointer"
+                      {/* Tags */}
+                      <div className="flex flex-wrap items-center gap-1 pt-1">
+                        {project.tags.slice(0, 4).map((tag) => (
+                          <span
+                            key={tag}
+                            className="px-2 py-0.5 rounded bg-slate-100 text-slate-600 text-[10px] font-medium"
                           >
-                            <span>{project.consultationText || `Konsultasi Solusi ${project.title}`}</span>
-                            <ArrowRight className="w-4 h-4 text-slate-950" />
-                          </button>
-                        )}
+                            #{tag}
+                          </span>
+                        ))}
                       </div>
-
                     </div>
+
+                    {/* Card Action Footer */}
+                    <div className="p-4 sm:p-5 pt-3 border-t border-slate-100 bg-slate-50/70 flex items-center justify-between">
+                      <span className="text-xs font-semibold text-slate-500 flex items-center gap-1.5">
+                        <Sparkles className="w-3.5 h-3.5 text-[#C59B27]" />
+                        <span>Studi Kasus Lengkap</span>
+                      </span>
+
+                      <button
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          handleOpenProjectDetail(project);
+                        }}
+                        className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-bold text-slate-950 bg-gradient-to-r from-[#E6C564] via-[#D4AF37] to-[#B8860B] hover:brightness-105 shadow-xs transition-all duration-150 cursor-pointer"
+                      >
+                        <Eye className="w-3.5 h-3.5 text-slate-950" />
+                        <span>Detail Proyek</span>
+                      </button>
+                    </div>
+
                   </div>
                 ))}
 
-                {/* Slot Proyek Tambahan */}
-                <div className="rounded-3xl border-2 border-dashed border-amber-300/80 bg-amber-500/5 p-8 text-center space-y-3">
-                  <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-[#C59B27]/30 flex items-center justify-center text-[#C59B27] mx-auto">
+                {/* Slot Proyek Tambahan (Card Datar) */}
+                <div className="rounded-3xl border-2 border-dashed border-amber-300/80 bg-amber-500/5 p-6 sm:p-8 flex flex-col items-center justify-center text-center space-y-3 min-h-[350px]">
+                  <div className="w-12 h-12 rounded-xl bg-amber-500/10 border border-[#C59B27]/30 flex items-center justify-center text-[#C59B27]">
                     <PlusCircle className="w-6 h-6" />
                   </div>
-                  <h4 className="text-base font-bold text-[#0F172A]">
-                    Slot Proyek Sistem &amp; Manajemen Data Berikutnya
-                  </h4>
-                  <p className="text-xs text-slate-500 max-w-md mx-auto leading-relaxed">
-                    Upload gambar proyek ke folder <code className="bg-white px-1.5 py-0.5 rounded text-amber-900 border border-amber-200">public/portofolio-project/images/</code> untuk mempublikasikan studi kasus baru.
-                  </p>
+                  <div>
+                    <h4 className="text-base font-bold text-[#0F172A]">
+                      Slot Proyek Sistem &amp; Manajemen Data Berikutnya
+                    </h4>
+                    <p className="text-xs text-slate-500 mt-1 max-w-xs mx-auto leading-relaxed">
+                      Upload gambar proyek ke folder <code className="bg-white px-1.5 py-0.5 rounded text-[10px] text-amber-900 border border-amber-200">public/portofolio-project/images/</code> untuk mempublikasikan studi kasus baru.
+                    </p>
+                  </div>
+                  <span className="inline-block px-3 py-1 rounded-full bg-white text-slate-600 text-[11px] font-semibold border border-slate-200 shadow-xs">
+                    Slot Studi Kasus Tersedia
+                  </span>
                 </div>
-
               </div>
 
             </div>
@@ -513,7 +442,11 @@ export const PortfolioPageView: React.FC<PortfolioPageViewProps> = ({
                         {/* Bottom Thumbnail Bar */}
                         <div className="absolute bottom-3 left-3 right-3">
                           <div className="flex items-center gap-1.5 text-white">
-                            <Coffee className="w-4 h-4 text-[#E6C564] shrink-0" />
+                            {item.id === 'kopi-ruang' ? (
+                              <Coffee className="w-4 h-4 text-[#E6C564] shrink-0" />
+                            ) : (
+                              <Sparkles className="w-4 h-4 text-[#E6C564] shrink-0" />
+                            )}
                             <h3 className="font-bold text-base tracking-tight text-white drop-shadow truncate">
                               {item.title}
                             </h3>
@@ -687,6 +620,14 @@ export const PortfolioPageView: React.FC<PortfolioPageViewProps> = ({
         isOpen={isModalOpen}
         onClose={handleClosePreview}
         item={selectedKarya}
+      />
+
+      {/* Project Detail Modal Popup (Studi Kasus Lengkap) */}
+      <ProjectDetailModal
+        isOpen={isProjectModalOpen}
+        onClose={handleCloseProjectDetail}
+        project={selectedProject}
+        onConsult={onConsult}
       />
 
     </div>

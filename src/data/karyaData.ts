@@ -28,5 +28,22 @@ export const KARYA_ITEMS: KaryaItem[] = [
       'Integrasi Google Maps, Jam Buka, & Reservasi WhatsApp'
     ],
     badge: 'Live Interactive Preview'
+  },
+  {
+    id: 'suroya-indonesia',
+    title: 'Suroya Indonesia',
+    subtitle: 'Produsen & Konveksi Rajut Custom',
+    category: 'Tekstil & Apparel',
+    thumbnailUrl: '/portofolio-karya/thumbnails/Suroya Indonesia.JPG',
+    previewUrl: '/portofolio-karya/pages/LP Suroya/suroya_indonesia_landing_page.html',
+    description: 'Landing page modern dan representatif untuk produsen rajut custom (manual & komputer). Menampilkan keunggulan mesin 7 & 12 Get, material berkualitas (PE, Akrilik, Cotton), kapasitas produksi, hingga integrasi kontak WhatsApp dan workshop Google Maps.',
+    tags: ['Landing Page', 'Pabrik Rajut', 'Tekstil & Apparel', 'Custom Knitwear', 'Responsive', 'Live Preview'],
+    features: [
+      'Spesifikasi Mesin Rajut Manual & Komputer (Get 7 & 12)',
+      'Pilihan Material Benang Lengkap (PE, Akrilik, Katun, Custom)',
+      'Desain Modern, Responsif & Mobile-First dengan Nuansa Earthy',
+      'Integrasi Cepat Chat WhatsApp & Titik Lokasi Google Maps'
+    ],
+    badge: 'Live Interactive Preview'
   }
 ];

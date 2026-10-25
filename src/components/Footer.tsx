@@ -58,14 +58,6 @@ export const Footer: React.FC<FooterProps> = ({
             <ul className="space-y-2 text-xs sm:text-sm">
               <li>
                 <button
-                  onClick={() => onNavigate('home')}
-                  className="hover:text-[#E6C564] transition-colors text-left"
-                >
-                  Beranda
-                </button>
-              </li>
-              <li>
-                <button
                   onClick={() => onNavigate('about')}
                   className="hover:text-[#E6C564] transition-colors text-left"
                 >
@@ -94,6 +86,20 @@ export const Footer: React.FC<FooterProps> = ({
                   className="hover:text-[#E6C564] transition-colors text-left"
                 >
                   Hubungi Saya
+                </button>
+              </li>
+              <li>
+                <button
+                  onClick={() => {
+                    onNavigate('home');
+                    setTimeout(() => {
+                      const el = document.getElementById('layanan');
+                      if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    }, 100);
+                  }}
+                  className="hover:text-[#E6C564] transition-colors text-left"
+                >
+                  Layanan
                 </button>
               </li>
             </ul>
